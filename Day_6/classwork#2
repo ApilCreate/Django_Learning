@@ -1,0 +1,45 @@
+# print the sum of 1 to n
+n = int(input("Enter a number: "))
+sum = 0
+for num in range(1,n + 1):
+    sum += num 
+
+print(f"The sum of 1 to {n} is: {sum}")
+
+# Print the word reverse
+word = input("Enter a word: ")
+print(word[::-1])
+
+# print how many vowels
+text = input("Enter a word: ")
+count = 0
+for letter in text.lower():
+    if letter in "aeiou":
+        count += 1
+
+print(f"There are {count} vowels")
+
+# print the factorial of n
+n1 = int(input("Enter a number: "))
+factorial = 1
+
+for num in range(1, n1 + 1):
+    factorial *= num
+
+print(f"The factorial of {n1} is: {factorial}")
+
+pw = input("Enter the password: ")
+while pw != "django123":
+    print("Incorrect password.")
+    pw = input("Enter the password: ")
+
+print("Password accepted.")
+
+nums = [8,3,12,5]
+largest = nums[0]
+
+for num in nums:
+    if num > largest:
+        largest = num
+
+print(f"The largest number is: {largest}")
