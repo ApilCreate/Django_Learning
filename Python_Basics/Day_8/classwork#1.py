@@ -20,3 +20,12 @@ for name in result:
     result[name].sort()
 
 print(result)
+
+arrange_result = {}
+for key in result:
+    new_value = sorted(result[key])
+    arrange_result[key] = new_value
+
+print(arrange_result)
+
+# add and merge two dictionarirs and what challenges we can face - homework
