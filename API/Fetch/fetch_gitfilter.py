@@ -40,3 +40,21 @@ try:
 
 except requests.exceptions.RequestException as error:
     print("Failed to request:", error)
+
+# Task 3:
+# Write a script that asks for a GitHub username and prints the 5 most recently updated repositories, including their names and update dates.
+
+if response.status_code == 200:
+    new_url = (url + '/repos')
+    parameter = {'per_page': 5, 'sort': 'updated', 'page':1}
+    sort = requests.get(new_url, params=parameter, timeout=10)
+    if sort.status_code == 200:
+        repos = sort.json()
+        if repos:
+            for repo in repos:
+                print("Repository:", repo["name"])
+                print("Last Updated:", repo["updated_at"])
+                print("URL:", repo["html_url"])
+                print()
+    else: print('Failed to fetch data!!')
+else: print('Failed to request data!!')
