@@ -23,3 +23,9 @@ for i in range(n):
     list.append(fibonacci(i))
 
 print(list)
+
+# #bad recursive case
+# def bad_recursion(n):
+#     return bad_recursion(n-1)
+
+# print(bad_recursion(10))
