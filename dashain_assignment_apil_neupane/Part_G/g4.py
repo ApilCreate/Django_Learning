@@ -16,7 +16,7 @@ for i in range(3):
             try:
                 mark = float(input(f"Enter marks in subject {j + 1} (out of 100): "))
 
-                if mark not in range(0,101):
+                if not 0 <= mark <= 100:
                     print("Invalid marks")
                 else:
                     marks.append(mark)
