@@ -5,7 +5,7 @@ user = input("Type a random sentence: ").strip()
 count = 0
 
 for char in user:
-    if char == 'a':
+    if char.lower() == 'a':
         count += 1
 
 print(count)
