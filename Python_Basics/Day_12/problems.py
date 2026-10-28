@@ -13,8 +13,8 @@ print(make_greeting("Namaste")("Ram"))
 
 # Problem 3: Write a decorator that uppercases what a function returns.
 def uppercase_result(func):
-    def wrapper(*args, **kwargs):
-        return func(*args, **kwargs).upper()
+    def wrapper():
+        return func().upper()
     return wrapper
 
 @uppercase_result
