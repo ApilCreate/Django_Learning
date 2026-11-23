@@ -1,8 +1,9 @@
 from django.http import JsonResponse
 from .models import Organization
+from django.shortcuts import get_object_or_404
 from rest_framework.decorators import api_view
 
-@api_view(['POST','GET'])
+@api_view(['POST','GET', 'DELETE'])
 def organization_view(request):
     if request.method == 'POST':
         name = request.data.get('name')
@@ -13,6 +14,13 @@ def organization_view(request):
         organizations = Organization.objects.all()
         data = [{'id': org.id, 'name': org.name, 'description': org.description} for org in organizations]
         return JsonResponse(data, safe=False)
+    elif request.method == 'DELETE':
+        organization_id = request.data.get('id')
+        organization = Organization.objects.get(id=organization_id)
+        organization.delete()
+        return JsonResponse({
+            'message': 'Organization deleted successfully'
+        })
 
 # @api_view(['GET'])
 # def organization_description(request):
