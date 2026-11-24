@@ -3,7 +3,7 @@ from .models import Organization
 from django.shortcuts import get_object_or_404
 from rest_framework.decorators import api_view
 
-@api_view(['POST','GET', 'DELETE'])
+@api_view(['POST','GET', 'DELETE', 'PATCH'])
 def organization_view(request):
     if request.method == 'POST':
         name = request.data.get('name')
@@ -21,6 +21,15 @@ def organization_view(request):
         return JsonResponse({
             'message': 'Organization deleted successfully'
         })
+    elif request.method == "PATCH":
+        organization_id = request.data.get('id')
+        organization = get_object_or_404(Organization, id=organization_id)
+        if 'name' in request.data:
+            organization.name = request.data['name']
+        if 'description' in request.data:
+            organization.description = request.data['description']
+        organization.save()
+        return JsonResponse({"message": "Updated Successfully"})
 
 # @api_view(['GET'])
 # def organization_description(request):
