@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'organization',
     'teaching',
-    'student'
+    'student',
+    'parent'
 ]
 
 MIDDLEWARE = [
